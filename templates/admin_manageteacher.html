@@ -1,0 +1,268 @@
+{% include 'adminheader.html' %}
+
+ <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex justify-content-center align-items-center" style="height: 700px">
+    <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+     
+
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3></h3>
+
+            {% if data['teacher']%}
+     
+            <div class="card">
+                <h3 class="text-center mb-4">Update Staff</h3>
+                <form  method="post">
+                    <div class="row justify-content-between text-left">        
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">First name<span class="text-danger"> *</span></label> <input type="text" value="{{data['teacher'][0]['first_name']}}" required="" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"> </div>
+                          <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Last Name<span class="text-danger"> *</span></label> <input type="text"   value="{{data['teacher'][0]['last_name']}}" required="" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div> 
+                       
+                       
+                    </div>
+                    <div class="row justify-content-between text-left">
+                       
+                          <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"> Email<span class="text-danger"> *</span></label> <input type="email"  value="{{data['teacher'][0]['email']}}"  required="" id="email" name="email" placeholder="Enter your Email" onblur="validate(3)"> </div>  
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone number<span class="text-danger"> *</span></label> <input type="number"  value="{{data['teacher'][0]['phone']}}"  required="" pattern="[0-9]{10}" id="mob" name="num" placeholder="Enter your Phone number" onblur="validate(4)"> </div>
+                    </div>         
+                  
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit"  name="update"  class="btn-block btn-primary">Update</button> </div>
+                    </div>
+                </form>
+            </div>
+
+           
+{% else %}
+
+
+             <div class="card">
+                <h3 class="text-center mb-4">Manage Staff</h3>
+                <form  method="post">
+                    <div class="row justify-content-between text-left">        
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">First name<span class="text-danger"> *</span></label> <input type="text"  required="" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"> </div>
+                          <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Last Name<span class="text-danger"> *</span></label> <input type="text"  required="" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div> 
+                       
+                       
+                    </div>
+                    <div class="row justify-content-between text-left">
+                       
+                          <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3"> Email<span class="text-danger"> *</span></label> <input type="email"  required="" id="email" name="email" placeholder="Enter your Email" onblur="validate(3)"> </div>  
+                        
+                                              <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Phone number<span class="text-danger"> *</span></label> <input type="number"  required="" pattern="[0-9]{10}" id="mob" name="num" placeholder="Enter your Phone number" onblur="validate(4)"> </div>
+                    </div>         
+                  
+
+                      <div class="row justify-content-between text-left">
+                      
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">User Name<span class="text-danger"> *</span></label> <input type="text" id="mob" required="" name="uname" placeholder="Enter your User Name" onblur="validate(4)"> </div>
+
+                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Password<span class="text-danger"> *</span></label> <input type="password" required="" id="job" name="pwd" placeholder="Enter your Password" onblur="validate(5)"> </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit"  name="teacher"  class="btn-block btn-primary">Add</button> </div>
+                    </div>
+                </form>
+            </div>
+
+             {% endif %}
+        </div>
+    </div>
+</div>
+    </div>
+  </section><!-- End Hero -->
+
+<style type="text/css">
+    body{color: #000;overflow-x: hidden;height: 100%;background-image: url("https://i.imgur.com/GMmCQHC.png");background-repeat: no-repeat;background-size: 100% 100%}.card{padding: 30px 40px;margin-top: 60px;margin-bottom: 60px;border: none !important;box-shadow: 0 6px 12px 0 rgba(0,0,0,0.2)}.blue-text{color: #00BCD4}.form-control-label{margin-bottom: 0}input, textarea, button{padding: 8px 15px;border-radius: 5px !important;margin: 5px 0px;box-sizing: border-box;border: 1px solid #ccc;font-size: 18px !important;font-weight: 300}input:focus, textarea:focus{-moz-box-shadow: none !important;-webkit-box-shadow: none !important;box-shadow: none !important;border: 1px solid #00BCD4;outline-width: 0;font-weight: 400}.btn-block{text-transform: uppercase;font-size: 15px !important;font-weight: 400;height: 43px;cursor: pointer}.btn-block:hover{color: #fff !important}button:focus{-moz-box-shadow: none !important;-webkit-box-shadow: none !important;box-shadow: none !important;outline-width: 0}
+</style>
+
+
+<script type="text/javascript">
+    function validate(val) {
+    v1 = document.getElementById("fname");
+    v2 = document.getElementById("lname");
+    v3 = document.getElementById("email");
+    v4 = document.getElementById("mob");
+    v5 = document.getElementById("job");
+    v6 = document.getElementById("ans");
+
+    flag1 = true;
+    flag2 = true;
+    flag3 = true;
+    flag4 = true;
+    flag5 = true;
+    flag6 = true;
+
+    if(val>=1 || val==0) {
+        if(v1.value == "") {
+            v1.style.borderColor = "red";
+            flag1 = false;
+        }
+        else {
+            v1.style.borderColor = "green";
+            flag1 = true;
+        }
+    }
+
+    if(val>=2 || val==0) {
+        if(v2.value == "") {
+            v2.style.borderColor = "red";
+            flag2 = false;
+        }
+        else {
+            v2.style.borderColor = "green";
+            flag2 = true;
+        }
+    }
+    if(val>=3 || val==0) {
+        if(v3.value == "") {
+            v3.style.borderColor = "red";
+            flag3 = false;
+        }
+        else {
+            v3.style.borderColor = "green";
+            flag3 = true;
+        }
+    }
+    if(val>=4 || val==0) {
+        if(v4.value == "") {
+            v4.style.borderColor = "red";
+            flag4 = false;
+        }
+        else {
+            v4.style.borderColor = "green";
+            flag4 = true;
+        }
+    }
+    if(val>=5 || val==0) {
+        if(v5.value == "") {
+            v5.style.borderColor = "red";
+            flag5 = false;
+        }
+        else {
+            v5.style.borderColor = "green";
+            flag5 = true;
+        }
+    }
+    if(val>=6 || val==0) {
+        if(v6.value == "") {
+            v6.style.borderColor = "red";
+            flag6 = false;
+        }
+        else {
+            v6.style.borderColor = "green";
+            flag6 = true;
+        }
+    }
+
+    flag = flag1 && flag2 && flag3 && flag4 && flag5 && flag6;
+
+    return flag;
+}
+</script>
+
+
+
+
+<style type="text/css">
+    
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    color: black
+}
+
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+</style>
+
+
+</div></div></div>
+
+
+<br><br><br><br><br><br>
+<center>
+    <h1 style="color: black">view Teacher</h1>
+    <form>
+            <table class="styled-table" style="color: black">
+    <thead>
+            <tr>
+                <th>sLno</th>
+                
+                
+                <th>First Name</th>
+             <th>Last Name</th>
+              
+               
+                <th>Phone</th>
+                <th>Email</th>
+                
+                
+            </tr>
+        </thead>
+            {% for row in data['teacherfview']%}
+             <tbody>
+        <tr>
+            <td>{{loop.index}}</td>
+           
+            <td>{{row['first_name'] }}</td>
+            <td>{{row['last_name']}}</td>
+           
+            <td>{{row['phone']}}</td>
+            <td>{{row['email'] }}</td>
+           
+        <td><a class="btn btn-success" href="?action=update&tid={{row['teacher_id']}}">Update</a></td>
+
+            <td><a class="btn btn-success" href="?action=delete&tid={{row['teacher_id']}}">Delete</a></td>
+       
+            
+            
+        
+      
+            
+        </tr>
+        {% endfor %}
+
+    </tbody>
+   
+        </table>
+    </form>
+</center>
+
+
+{% include 'footer.html'%}
